@@ -1,7 +1,7 @@
 # Proyecto Animales Salvajes
 ### Para visualizar el proyecto se ejecuta el comando "node server.js" para posteriormente en el navegador ingresar al siguiente enlace http://localhost:3000/
 
-## En este desafio se evaluaron habilidades tales como:
+### En este desafio se evaluaron habilidades tales como:
 
 - Crear clases con herencias.
 - Exportar e importar módulos.

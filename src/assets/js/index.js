@@ -1,3 +1,4 @@
+// importar modulos
 import Aguila from "./Aguila.js";
 import Leon from "./Leon.js"
 import Lobo from "./Lobo.js"
@@ -5,11 +6,12 @@ import Oso from "./Oso.js"
 import Serpiente from "./Serpiente.js"
 import animalesPics from "./consulta.js";
 
-(async () => {
+// función IIFE (encapsular bloque)
+(async () => {  // función async (asincrono)
 
     let listaTodosAnimales = []
 
-    const datosAnimales = await animalesPics.getData()
+    const datosAnimales = await animalesPics.getData() // se ejecuta la condciòn await quien espera a que una función sea pausada hasta que se apruebe o rechaze
     const previewImagen = document.querySelector('#preview')
 
     const recargarTabla = (animales) => {
@@ -29,7 +31,7 @@ import animalesPics from "./consulta.js";
             `
         })
 
-        document.querySelectorAll('#tarjeta img').forEach((imagen, index) => {
+        document.querySelectorAll('#tarjeta img').forEach((imagen, index) => { // se ejecuta ForEach para ejecutar la función callback or cada elemento (recorre)
             const posicion = index
             imagen.addEventListener('click', () => {
                 const animalModal = listaTodosAnimales[posicion]
@@ -65,19 +67,20 @@ import animalesPics from "./consulta.js";
         const edad = document.querySelector(`#edad`).value
         const comentario = document.querySelector(`#comentarios`).value
         const animalEncontrado = datosAnimales.animales.find(a => a.name === nombre)
+        
         let nuevoAnimal
         if (nombre === 'Aguila') {
             nuevoAnimal = new Aguila(nombre, edad, animalEncontrado.imagen, comentario, animalEncontrado.sonido)
         } else if (nombre === 'Leon') {
             nuevoAnimal = new Leon(nombre, edad, animalEncontrado.imagen, comentario, animalEncontrado.sonido)
-        } else if (nombre === 'Lobo'){
+        } else if (nombre === 'Lobo') {
             nuevoAnimal = new Lobo(nombre, edad, animalEncontrado.imagen, comentario, animalEncontrado.sonido)
-        } else if (nombre === 'Oso'){
+        } else if (nombre === 'Oso') {
             nuevoAnimal = new Oso(nombre, edad, animalEncontrado.imagen, comentario, animalEncontrado.sonido)
-        } else if (nombre === 'Serpiente'){
+        } else if (nombre === 'Serpiente') {
             nuevoAnimal = new Serpiente(nombre, edad, animalEncontrado.imagen, comentario, animalEncontrado.sonido)
         }
-        
+
         listaTodosAnimales.push(nuevoAnimal)
 
         recargarTabla(listaTodosAnimales)
